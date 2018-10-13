@@ -120,6 +120,32 @@ namespace ShopManagement.Gateway
             return products;
         }
 
+        public List<Sell> Sells()
+        {
+            SqlConnection con = new SqlConnection(ConnectinString);
+            con.Open();
+            string query = "Select * from Sell_views";
+
+            SqlCommand cmd = new SqlCommand(query, con);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            List<Sell> products = new List<Sell>();
+            while (reader.Read())
+            {
+                Sell product = new Sell();
+                product.CustomerName = reader["CustomerName"].ToString();
+                product.ProductName = reader["ProductName"].ToString();
+                product.SupplierName = reader["SupplierName"].ToString();
+               
+
+
+                products.Add(product);
+            }
+            reader.Close();
+            con.Close();
+            return products;
+        }
+
         public int SellProduct(Sell product)
         {
             SqlConnection con = new SqlConnection(ConnectinString);

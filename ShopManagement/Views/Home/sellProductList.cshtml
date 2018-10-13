@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "sellProductList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>sell Product List</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th class="text-center table-style">Cutomer Name</th>
+            <th class="text-center table-style">Product Name</th>
+            <th class="text-center table-style">Supplier</th>
+
+        </tr>
+    </thead>
+    <tbody id="departments"></tbody>
+    @{
+    foreach (var data in ViewBag.sells)
+    {
+        <tr class="text-center">
+            <td>@data.CustomerName</td>
+            <td>@data.ProductName</td>
+                <td>@data.SupplierName</td>
+            </tr>
+    }
+}
+</table>
+
+
+

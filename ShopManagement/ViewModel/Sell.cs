@@ -14,5 +14,9 @@ namespace ShopManagement.ViewModel
         [Required(ErrorMessage = "This Field is Required")]
         [Display(Name = "Product")]
         public int ProductId { get; set; }
+
+        public string ProductName { get; set; }
+        public string CustomerName { get; set; }
+        public string SupplierName { get; set; }
     }
 }

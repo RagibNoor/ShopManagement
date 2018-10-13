@@ -113,5 +113,13 @@ namespace ShopManagement.Controllers
             }
             return View();
         }
+
+        [HttpGet]
+        public ActionResult sellProductList()
+        {
+            ViewBag.sells = shop.Sells();
+            
+            return View();
+        }
     }
 }
