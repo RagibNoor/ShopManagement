@@ -1,0 +1,45 @@
+﻿@model ShopManagement.ViewModel.Sell
+@{
+    ViewBag.Title = "sellProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>sellProduct</h2>
+
+<div class="login-form ">
+    @using (Html.BeginForm(null, "Home", FormMethod.Post, new { id = "SaveStudent", @class = "" }))
+    {
+        //Name
+        <div class="row form-group">
+            <div class="col-md-4 text-right">
+                @Html.LabelFor(m => m.CustomerId)
+            </div>
+
+            <div class="col-md-8">
+               
+                @Html.DropDownListFor(c => c.CustomerId, new SelectList(ViewBag.Customers, "Id", "Name"), "--Select--", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.CustomerId)
+            </div>
+        </div>
+        //Customer code
+        <div class="row form-group">
+            <div class="col-md-4 text-right">
+                @Html.LabelFor(m => m.ProductId)
+            </div>
+
+            <div class="col-md-8">
+                @Html.DropDownListFor(c => c.ProductId, new SelectList(ViewBag.Products, "Id", "Name"), "--Select--", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.ProductId)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 text-right">
+                <input type="submit" value="Save" class="btn btn-info" />
+
+            </div>
+            <label class="label label-success">@ViewBag.Message</label>
+
+        </div>
+    }
+</div>
